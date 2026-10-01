@@ -8,7 +8,7 @@ alpha_pred = least-squares slope of the centroids against the clean centroids of
 One process per GPU takes (mode, alpha) pairs round-robin and writes a resumable part file
 each; the parent merges them into results/dov/sweep.json (+ summary.csv).
 
-    python scripts/dov/run_sweep.py --components mlp_t h_t_1 h_t_2 h_t_6 h_t_7 mlp_s
+    python scripts/circuit/run_sweep.py --components mlp_t h_t_1 h_t_2 h_t_6 h_t_7 mlp_s
 """
 import argparse
 import hashlib
@@ -91,9 +91,12 @@ def main():
     ap.add_argument("--modes", nargs="+", default=["radial", "tangential_pure"])
     ap.add_argument("--recording", default="RandomWalk1")
     ap.add_argument("--max-windows", type=int, default=None)
-    ap.add_argument("--n-gpus", type=int, default=8)
+    ap.add_argument("--n-gpus", type=int, default=None, help="default: all visible GPUs")
     ap.add_argument("--out", type=Path, default=P / "results/dov")
     args = ap.parse_args()
+    if args.n_gpus is None:
+        import torch
+        args.n_gpus = torch.cuda.device_count()
 
     circuit = list(args.components)
     assert all(c in ALL_COMPONENTS for c in circuit), circuit

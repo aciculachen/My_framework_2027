@@ -3,7 +3,7 @@
 sweep.json (alpha_pred per alpha) and a compute_phys.py phys.json (the physics model's slopes g).
 rho = M(patched) / M(unpatched).
 
-    python scripts/dcs/circuit_score.py --sweep results/dov/sweep.json --phys results/dov/phys.json
+    python scripts/circuit/circuit_score.py --sweep results/dov/sweep.json --phys results/dov/phys.json
 """
 import argparse
 import json
