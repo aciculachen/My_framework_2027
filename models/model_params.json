@@ -1,0 +1,11 @@
+{
+  "marker_dim": 3,
+  "spatial_dim": 128,
+  "temporal_dim": 256,
+  "spatial_num_heads": 8,
+  "temporal_num_heads": 8,
+  "fc_dim": 512,
+  "output_dim": 1,
+  "dropout": 0.1,
+  "num_markers": 53
+}

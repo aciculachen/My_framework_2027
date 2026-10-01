@@ -1,0 +1,21 @@
+stft:
+  nperseg: 256
+  noverlap: 224
+
+# startup delay trimmed from both streams
+delay:
+  startup_us: 50000
+  apply_to_radar: true
+
+mocap_fps: 240
+
+datasets:
+  train:
+    file_list: ["DiagonalLong1", "DiagonalLong1Fast", "DiagonalLong2", "DiagonalLong2Fast", "DiagonalLong3", "DiagonalLong3Fast"]
+    loader_params: {stop_read: "Radar9_20", radar_skiprows: 0, num_markers: 53}
+  val:
+    file_list: ["DiagonalLong4", "DiagonalLong4Fast"]
+    loader_params: {stop_read: "Radar9_20", radar_skiprows: 0, num_markers: 53}
+  eval:
+    file_list: ["RandomWalk1", "RandomWalk2"]
+    loader_params: {stop_read: "Radar9_20", radar_skiprows: 0, num_markers: 53}

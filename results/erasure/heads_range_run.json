@@ -1,0 +1,24 @@
+{
+  "site": "heads",
+  "heads": [
+    1,
+    2,
+    6,
+    7
+  ],
+  "target": "range",
+  "recording": "RandomWalk1",
+  "fit_recording": "RandomWalk2",
+  "alphas": [
+    0.1,
+    0.2,
+    0.3,
+    0.4,
+    0.5,
+    0.6,
+    0.7,
+    0.8,
+    0.9
+  ],
+  "n_scored": 2416
+}
